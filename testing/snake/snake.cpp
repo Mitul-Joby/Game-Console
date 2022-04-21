@@ -18,7 +18,7 @@ struct Apple
     int y;
 } apple;
 
-void initLives(int lives)
+void initSnakeLives(int lives)
 {
     snake.lives = lives;
 }

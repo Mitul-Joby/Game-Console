@@ -3,7 +3,7 @@
 
 // Functions
 void initGame(int matrix[8][32]);
-void initLives(int lives);
+void initSnakeLives(int lives);
 void updateGame(int matrix[8][32]);
 void newApple();
 void input(int matrix[8][32]);

@@ -16,7 +16,7 @@ int main()
 
 
    initGame(matrix);
-   initLives(3);
+   initSnakeLives(3);
 
    while (1)
    {

@@ -1,4 +1,3 @@
-#include "time.h"
 #include "LedControl.h"
 
 int VRx = A0;
@@ -118,7 +117,6 @@ void displayLogo()
   LC.setRow(0, 0, 0b10111110);  LC.setRow(1, 0, 0b01001000);  LC.setRow(2, 0, 0b11011010); LC.setRow(3, 0, 0b00111110);
 }
 
-
 void displayGameOver()
 {
   LC.setRow(0, 7, 0b00000000);  LC.setRow(1, 7, 0b00000000);  LC.setRow(2, 7, 0b00000000); LC.setRow(3, 7, 0b00000000);
@@ -141,7 +139,7 @@ void initDisplay()
   }
 }
 
-void initLives(int lives)
+void initSnakeLives(int lives)
 {
   snake.lives = lives;
 }
@@ -170,13 +168,13 @@ void initGame()
  
 }
 
-void updatePositions()
+void updateSnakePositions()
 {
   matrix[snake.y][snake.x] = snake.length;
   matrix[apple.y][apple.x] = -1;
 }
 
-void displayGame()
+void displayMatrix()
 {
   // Set Row 
 
@@ -334,14 +332,14 @@ void loop()
   displayLogo();  
   delay(5000);
 
-  initLives(3);
+  initSnakeLives(3);
   initGame();
 
   int gameOver = 0;
   while (!gameOver)
   {
-    updatePositions();
-    displayGame();
+    updateSnakePositions();
+    displayMatrix();
 
     int snakeX = analogRead(VRx);
     int snakeY = analogRead(VRy);
